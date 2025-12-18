@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <h1 class="hero-title"></h1>
+    <title>elnauscent</title>
+
+    <!-- SEO -->
+    <meta name="description" content="élnauscent – Toko parfum mewah, koleksi eksklusif, belanja online parfum premium">
+    <meta name="keywords" content="parfum, parfum mewah, belanja parfum, élnauscent, parfum pria, parfum wanita">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<!-- HERO BANNER -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">ÉLNAU SCENT</h1>
+        <p class="hero-subtitle">Exclusive • Elegant • Long Lasting</p>
+        <a href="#product-list" class="hero-btn">Belanja Sekarang</a>
+    </div>
+</section>
+
+<!-- HEADER -->
+<header class="header">
+        <h1 class="hero-title">ÉLNAU SCENT</h1>
+    <h1 class="brand"></h1>
+    <div class="top-controls">
+        <input type="text" id="search" placeholder="Cari parfum..." class="search" onkeyup="searchProduct()">
+        <select id="categoryFilter" class="filter" onchange="filterCategory()">
+            <option value="all">Semua Kategori</option>
+            <option value="man">Pria</option>
+            <option value="woman">Wanita</option>
+            <option value="Unisex">Unisex</option>
+        </select>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </div>
+</header>
+
+<!-- PRODUCT LIST -->
+<section class="product-section">
+    <h2 class="section-title">Koleksi Parfum Terbaik</h2>
+    <div id="product-list" class="product-grid"></div>
+</section>
+
+<!-- CART SECTION -->
+<section class="cart-section">
+    <h2>Keranjang Anda</h2>
+    <div id="cart"></div>
+    <p class="total-text">Total: Rp <span id="total">0</span></p>
+    <button onclick="checkout()" class="checkout-btn">Checkout</button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <h3>Hubungi Kami</h3>
+    <div class="social-icons">
+        <a href="https://wa.me/6282221546547"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="https://shopee.co.id/elnauscent"><i class="fab fa-shopping-bag"></i></a>
+        <a href="#"><i class="fa-solid fa-store"></i></a>
+    </div>
+    <a href="admin.html" class="admin-btn">Admin Panel</a>
+    <p class="footer-text">© 2025 ÉLNAU SCENT – Élnau Perfume Shop</p>
+</footer>
+
+<!-- Firebase Config -->
+<script>
+  const firebaseConfig = {
+    apiKey: "API_KEY_ANDA",
+    authDomain: "PROJECT_ID.firebaseapp.com",
+    databaseURL: "https://PROJECT_ID-default-rtdb.firebaseio.com",
+    projectId: "PROJECT_ID",
+    storageBucket: "PROJECT_ID.appspot.com",
+    messagingSenderId: "SENDER_ID",
+    appId: "APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
